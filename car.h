@@ -24,11 +24,7 @@ class car {
      * Perhaps size_t, uint64_t, or simply unsigned long would be a better choice.
      */
     double amount_paid;
-    struct {
-        std::string plate_number;
-        std::string model;
-        std::string color;
-    } description;
+    std::string description;
     
 public:
     

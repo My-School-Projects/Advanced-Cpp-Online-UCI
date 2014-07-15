@@ -20,7 +20,7 @@ int main() {
     
 //    clear_screen();
     
-    print_title(" Michael's Car Wash ", 25);
+    print_title(" Welcome to the Car Wash ", 30);
     
     
     
