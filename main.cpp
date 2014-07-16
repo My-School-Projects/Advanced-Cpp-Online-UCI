@@ -66,7 +66,7 @@ int main() {
             do {
                 cout<<endl
                 <<"Press [return] to enter a new car..."<<endl
-                <<"Type '"<<constant::pop_front<<"' to get rid of the front car"<<endl
+                <<"Type '"<<constant::pop_front<<"' to wash the front car"<<endl
                 <<"Type '"<<constant::print_que<<"' to view all the cars in the que"<<endl
                 <<"Type '"<<constant::exit<<"' to stop the program"<<endl
                 <<">> ";
