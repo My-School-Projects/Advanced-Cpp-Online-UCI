@@ -22,9 +22,6 @@ class car {
     }
 public:
     car() = delete;
-    car(std::string& d, double ap) : description(d) {
-        set_amount_paid(ap);
-    }
     car(std::string&& d, double ap) : description(std::move(d)) {
         set_amount_paid(ap);
     }
