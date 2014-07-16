@@ -15,19 +15,39 @@ void clear_screen();
 void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
 void add_car(std::deque<car>&);
 
+namespace option {
+    bool clear_screen_enabled;
+}
+
 int main() {
     using std::cout; using std::endl; using std::cin;
     std::deque<car> que;
     
-//    clear_screen();
+    std::string response;
     
-    print_title(" Welcome to the Car Wash ", 30);
+    cout<<"This program would like your permission to clear the terminal."<<endl
+    <<"Warning: this option is designed to work on MS-DOS and UNIX based"<<endl
+    <<"systems only (including Windows, Linux and OS X)."<<endl;
+    
+    while (true) {
+        cout<<"[Y]es or [N]o?"<<endl
+        <<">> ";
+        std::getline(cin, response);
+        if (response[0] == 'y' or response[0] == 'Y') {
+            option::clear_screen_enabled = true;
+            break;
+        } else if (response[0] == 'n' or response[0] == 'N') {
+            option::clear_screen_enabled = false;
+            break;
+        }
+    }
     
     {
-        std::string response;
         do {
+            clear_screen();
             if (response == "") {
                 add_car(que);
+                clear_screen();
             } else if (response == "report") {
                 
             } else if (response == "finish") {
@@ -55,7 +75,10 @@ int main() {
 }
 
 void clear_screen() {
-    if (system("cls")) system("clear");
+    if (option::clear_screen_enabled) {
+        if (system("cls")) system("clear");
+        print_title(" Welcome to the Car Wash ", 30);
+    }
 }
 
 void print_title(std::string title, int width, char fill_char, std::ostream& out) {
