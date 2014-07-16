@@ -13,18 +13,45 @@
 
 void clear_screen();
 void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
+void add_car(std::deque<car>&);
 
 int main() {
-    
+    using std::cout; using std::endl; using std::cin;
     std::deque<car> que;
     
 //    clear_screen();
     
     print_title(" Welcome to the Car Wash ", 30);
     
-    
-    
-    return 0;
+    {
+        std::string response;
+        do {
+            if (response == "") {
+                add_car(que);
+            } else if (response == "report") {
+                
+            } else if (response == "finish") {
+                
+            } else if (response == "exit") {
+                return 0;
+            }
+            
+            do {
+                cout<<endl
+                <<"Press [return] to enter a new car..."<<endl
+                <<"Type 'finish' to get rid of the front car"<<endl
+                <<"Type 'report' to view all the cars in the que"<<endl
+                <<"Type 'exit' to stop the program"<<endl
+                <<">> ";
+                std::getline(cin, response);
+                
+            } while (response != "finish" and
+                     response != "report" and
+                     response != "exit" and
+                     response.length() > 0);
+            
+        } while (response != "exit");
+    }
 }
 
 void clear_screen() {
@@ -37,4 +64,28 @@ void print_title(std::string title, int width, char fill_char, std::ostream& out
     <<setw(width*2-(int)title.length())<<fill_char<<endl
     <<setw(width)<< title <<setw(width-(int)title.length())<<fill_char<<endl
     <<setw(width*2-(int)title.length())<<fill_char<<endl;
+}
+
+void add_car(std::deque<car>& que) {
+    using std::cout; using std::endl; using std::cin;
+    std::string description;
+    double amount_paid;
+    cout<<endl<<endl
+    <<"Enter the next car's description (plate #, model, color...)"<<endl
+    <<">> ";
+    std::getline(cin, description);
+    cout<<endl
+    <<"Enter the amount paid"<<endl
+    <<">> ";
+    do {
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout<<"Please enter a number"<<endl
+            <<">>";
+        }
+        cin>>amount_paid;
+    } while (cin.fail());
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    que.push_back(car(std::move(description), amount_paid));
 }
