@@ -56,7 +56,9 @@ int main() {
                 add_car(que);
                 clear_screen();
             } else if (response == constant::pop_front) {
-                
+                if (que.size() > 0) {
+                    que.pop_front();
+                }
             } else if (response == constant::print_que) {
                 
             } else if (response == constant::exit) {
