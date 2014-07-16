@@ -19,6 +19,13 @@ namespace option {
     bool clear_screen_enabled;
 }
 
+namespace constant {
+    std::string title = " Welcome to the Car Wash ";
+    std::string pop_front = "finish";
+    std::string print_que = "report";
+    std::string exit = "exit";
+}
+
 int main() {
     using std::cout; using std::endl; using std::cin;
     std::deque<car> que;
@@ -48,36 +55,36 @@ int main() {
             if (response == "") {
                 add_car(que);
                 clear_screen();
-            } else if (response == "report") {
+            } else if (response == constant::pop_front) {
                 
-            } else if (response == "finish") {
+            } else if (response == constant::print_que) {
                 
-            } else if (response == "exit") {
+            } else if (response == constant::exit) {
                 return 0;
             }
             
             do {
                 cout<<endl
                 <<"Press [return] to enter a new car..."<<endl
-                <<"Type 'finish' to get rid of the front car"<<endl
-                <<"Type 'report' to view all the cars in the que"<<endl
-                <<"Type 'exit' to stop the program"<<endl
+                <<"Type '"<<constant::pop_front<<"' to get rid of the front car"<<endl
+                <<"Type '"<<constant::print_que<<"' to view all the cars in the que"<<endl
+                <<"Type '"<<constant::exit<<"' to stop the program"<<endl
                 <<">> ";
                 std::getline(cin, response);
                 
-            } while (response != "finish" and
-                     response != "report" and
-                     response != "exit" and
-                     response.length() > 0);
+            } while (response != "" and
+                     response != constant::pop_front and
+                     response != constant::print_que and
+                     response != constant::exit);
             
-        } while (response != "exit");
+        } while (response != constant::exit);
     }
 }
 
 void clear_screen() {
     if (option::clear_screen_enabled) {
         if (system("cls")) system("clear");
-        print_title(" Welcome to the Car Wash ", 30);
+        print_title(constant::title, 30);
     }
 }
 
