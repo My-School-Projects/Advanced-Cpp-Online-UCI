@@ -12,12 +12,23 @@
 #include <string>
 
 class car {
-    double amount_paid;
     std::string description;
+    double amount_paid;
 public:
-    void set_amount_paid(double ap)       { amount_paid = ap; }
     void set_description(std::string& d)  { description = d;  }
     void set_description(std::string&& d) { description = d;  }
+    void set_amount_paid(double ap) {
+        if (ap >= 0) {
+            amount_paid = ap;
+        }
+    }
+    car() = default;
+    car(std::string& d, double ap) : description(d) {
+        set_amount_paid(ap);
+    }
+    car(std::string&& d, double ap) : description(d) {
+        set_amount_paid(ap);
+    }
 };
 
 #endif
