@@ -12,6 +12,8 @@
 #include <string>
 
 class car {
+    static size_t master_sequence;
+    size_t sequence;
     std::string description;
     double amount_paid;
     
@@ -22,7 +24,7 @@ class car {
     }
 public:
     car() = delete;
-    car(std::string&& d, double ap) : description(std::move(d)) {
+    car(std::string&& d, double ap) : description(std::move(d)), sequence(++master_sequence) {
         set_amount_paid(ap);
     }
     friend std::ostream& operator << (std::ostream&, car&);
