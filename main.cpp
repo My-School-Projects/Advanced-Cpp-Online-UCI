@@ -62,6 +62,7 @@ int main() {
                 if (que.size() > 0) {
                     que.pop_front();
                 }
+                print_que(que);
             } else if (response == constant::print_que) {
                 print_que(que);
             } else if (response == constant::exit) {
