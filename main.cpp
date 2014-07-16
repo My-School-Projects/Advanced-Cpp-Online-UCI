@@ -14,6 +14,7 @@
 void clear_screen();
 void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
 void add_car(std::deque<car>&);
+void print_que(std::deque<car>&);
 
 namespace option {
     bool clear_screen_enabled;
@@ -60,7 +61,7 @@ int main() {
                     que.pop_front();
                 }
             } else if (response == constant::print_que) {
-                
+                print_que(que);
             } else if (response == constant::exit) {
                 return 0;
             }
@@ -120,4 +121,18 @@ void add_car(std::deque<car>& que) {
     } while (cin.fail());
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     que.push_back(car(std::move(description), amount_paid));
+}
+
+void print_que(std::deque<car>& que) {
+    std::cout<<std::endl;
+    for (size_t i = 0; i < que.size(); i++) {
+        std::cout<<"Sequence: "<<i<<", "<<que[i]<<std::endl;
+    }
+}
+
+std::ostream& operator << (std::ostream& out, car& c) {
+    out<<"Amount paid: $"
+    <<std::setw(6)<<std::left<<std::fixed<<std::setprecision(2)<<c.amount_paid
+    <<", Description: "<<c.description;
+    return out;
 }

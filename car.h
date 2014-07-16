@@ -29,6 +29,7 @@ public:
     car(std::string&& d, double ap) : description(d) {
         set_amount_paid(ap);
     }
+    friend std::ostream& operator << (std::ostream&, car&);
 };
 
 #endif
