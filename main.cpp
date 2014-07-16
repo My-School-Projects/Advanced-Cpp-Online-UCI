@@ -96,7 +96,7 @@ void print_title(std::string title, int width, char fill_char, std::ostream& out
     out<<std::setfill(fill_char)
     <<setw(width*2-(int)title.length())<<fill_char<<endl
     <<setw(width)<< title <<setw(width-(int)title.length())<<fill_char<<endl
-    <<setw(width*2-(int)title.length())<<fill_char<<endl;
+    <<setw(width*2-(int)title.length())<<fill_char<<endl<<std::setfill(' ');
 }
 
 void add_car(std::deque<car>& que) {
