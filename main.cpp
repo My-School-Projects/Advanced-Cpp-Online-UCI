@@ -49,10 +49,10 @@ int main() {
             break;
         }
     }
+    clear_screen();
     
     {
         do {
-            clear_screen();
             if (response == "") {
                 add_car(lot);
                 clear_screen();
@@ -75,6 +75,7 @@ int main() {
                 <<"Type '"<<constant::quit<<"' to stop the program"<<endl
                 <<">> ";
                 std::getline(cin, response);
+                clear_screen();
                 
             } while (response != "" and
                      response != constant::exit_car and
@@ -118,7 +119,7 @@ void add_car(std::set<car>& lot) {
 
 void print_lot(std::set<car>& lot) {
     for (auto i = lot.begin(); i != lot.end(); i++) {
-        std::cout<<*i<<std::endl;
+        std::cout<<std::endl<<*i<<std::endl;
     }
 }
 
@@ -126,7 +127,7 @@ std::ostream& operator << (std::ostream& out, const car& c) {
     out
     <<"Plate #: "<<c.plate_number<<std::endl
     <<"Description: "<<c.description<<std::endl
-    <<"Time in: "<<std::put_time(std::localtime(&c.time_in), "%R %D");
+    <<"Time in: "<<std::put_time(std::localtime(&c.time_in), "%c");
     return out;
 }
 
