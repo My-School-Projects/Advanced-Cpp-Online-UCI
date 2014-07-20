@@ -23,7 +23,7 @@ public:
     plate_number(std::move(pn)), description(std::move(d)),
     time_in(std::time(nullptr)) {}
     
-    friend std::ostream& operator << (std::ostream&, car&);
+    friend std::ostream& operator << (std::ostream&, const car&);
     friend bool operator <  (const car&, const car&);
     friend bool operator <= (const car&, const car&);
     friend bool operator == (const car&, const car&);

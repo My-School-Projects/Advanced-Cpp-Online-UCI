@@ -120,7 +120,7 @@ void print_lot(std::set<car>& lot) {
     // print lot
 }
 
-std::ostream& operator << (std::ostream& out, car& c) {
+std::ostream& operator << (std::ostream& out, const car& c) {
     out
     <<"Plate #: "<<c.plate_number<<std::endl
     <<"Description: "<<c.description<<std::endl
