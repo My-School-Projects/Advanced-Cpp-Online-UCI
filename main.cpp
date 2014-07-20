@@ -21,7 +21,7 @@ namespace option {
 }
 
 namespace constant {
-    std::string title = " Welcome to the Car Wash ";
+    std::string title = " Welcome to the Parking Lot ";
     std::string pop_front = "wash";
     std::string print_que = "report";
     std::string exit = "exit";
