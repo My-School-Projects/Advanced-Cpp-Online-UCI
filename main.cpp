@@ -101,27 +101,19 @@ void print_title(std::string title, int width, char fill_char, std::ostream& out
 }
 
 void add_car(std::set<car>& lot) {
-    using std::cout; using std::endl; using std::cin;
+    using std::cout; using std::endl; using std::cin; using std::move;
+    std::string plate_number;
     std::string description;
-    double amount_paid;
     cout<<endl<<endl
-    <<"Enter the next car's description (plate #, model, color...)"<<endl
+    <<"Enter the next car's plate #"<<endl
+    <<">> ";
+    std::getline(cin, plate_number);
+    cout<<endl
+    <<"Enter the next car's description"<<endl
     <<">> ";
     std::getline(cin, description);
-    cout<<endl
-    <<"Enter the amount paid"<<endl
-    <<">> ";
-    do {
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cout<<"Please enter a number"<<endl
-            <<">>";
-        }
-        cin>>amount_paid;
-    } while (cin.fail());
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
+    lot.insert(move(car(move(plate_number), move(description))));
 }
 
 void print_lot(std::set<car>& lot) {
