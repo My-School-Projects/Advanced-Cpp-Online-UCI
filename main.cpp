@@ -132,6 +132,8 @@ void print_que(std::deque<car>& que) {
 
 std::ostream& operator << (std::ostream& out, car& c) {
     out
-    <<" Description: "<<c.description;
+    <<"Plate #: "<<c.plate_number<<std::endl
+    <<"Description: "<<c.description<<std::endl
+    <<"Time in: "<<std::put_time(std::localtime(&c.time_in), "%R %D");
     return out;
 }
