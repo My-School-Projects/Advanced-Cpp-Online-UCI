@@ -135,3 +135,19 @@ std::ostream& operator << (std::ostream& out, car& c) {
     <<"Time in: "<<std::put_time(std::localtime(&c.time_in), "%R %D");
     return out;
 }
+
+bool operator <  (const car& lhv, const car& rhv) {
+    return lhv.time_in < rhv.time_in;
+}
+bool operator <= (const car& lhv, const car& rhv) {
+    return lhv.time_in <= rhv.time_in;
+}
+bool operator == (const car& lhv, const car& rhv) {
+    return lhv.time_in == rhv.time_in;
+}
+bool operator >= (const car& lhv, const car& rhv) {
+    return lhv.time_in >= rhv.time_in;
+}
+bool operator >  (const car& lhv, const car& rhv) {
+    return lhv.time_in > rhv.time_in;
+}

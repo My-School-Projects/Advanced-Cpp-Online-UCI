@@ -24,6 +24,11 @@ public:
     time_in(std::time(nullptr)) {}
     
     friend std::ostream& operator << (std::ostream&, car&);
+    friend bool operator <  (const car&, const car&);
+    friend bool operator <= (const car&, const car&);
+    friend bool operator == (const car&, const car&);
+    friend bool operator >= (const car&, const car&);
+    friend bool operator >  (const car&, const car&);
 };
 
 #endif
