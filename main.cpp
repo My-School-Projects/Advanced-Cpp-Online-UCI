@@ -58,10 +58,8 @@ int main() {
                 add_car(lot);
                 clear_screen();
             } else if (response == constant::exit_car) {
-                if (lot.size() > 0) {
-                    // exit car
-                }
                 print_lot(lot);
+                
             } else if (response == constant::print_lot) {
                 print_lot(lot);
             } else if (response == constant::quit) {
