@@ -19,8 +19,8 @@ class car {
     
 public:
     car() = delete;
-    car(std::string&& pn, std::time_t t, std::string&& d) :
-    plate_number(pn), time_in(t), description(std::move(d)) {}
+    car(std::string&& pn, std::string&& d) :
+    plate_number(pn), description(std::move(d)), time_in(std::time(nullptr)) {}
     
     friend std::ostream& operator << (std::ostream&, car&);
 };
