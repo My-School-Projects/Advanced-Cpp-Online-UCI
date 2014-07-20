@@ -27,8 +27,6 @@ namespace constant {
     std::string exit = "exit";
 }
 
-size_t car::master_sequence = 0;
-
 int main() {
     using std::cout; using std::endl; using std::cin;
     std::deque<car> que;
@@ -123,7 +121,7 @@ void add_car(std::deque<car>& que) {
         cin>>amount_paid;
     } while (cin.fail());
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    que.push_back(car(std::move(description), amount_paid));
+    
 }
 
 void print_que(std::deque<car>& que) {
@@ -133,9 +131,7 @@ void print_que(std::deque<car>& que) {
 }
 
 std::ostream& operator << (std::ostream& out, car& c) {
-    out<<"Sequence: "<<std::left<<std::setw(3)<<c.sequence
-    <<" Amount paid: $"
-    <<std::setw(6)<<std::left<<std::fixed<<std::setprecision(2)<<c.amount_paid
+    out
     <<" Description: "<<c.description;
     return out;
 }
