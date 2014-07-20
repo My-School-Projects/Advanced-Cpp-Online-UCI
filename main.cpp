@@ -117,7 +117,9 @@ void add_car(std::set<car>& lot) {
 }
 
 void print_lot(std::set<car>& lot) {
-    // print lot
+    for (auto i = lot.begin(); i != lot.end(); i++) {
+        std::cout<<*i<<std::endl;
+    }
 }
 
 std::ostream& operator << (std::ostream& out, const car& c) {
