@@ -22,9 +22,9 @@ namespace option {
 
 namespace constant {
     std::string title = " Welcome to the Parking Lot ";
-    std::string pop_front = "wash";
-    std::string print_que = "report";
-    std::string exit = "exit";
+    std::string exit_car = "x";
+    std::string print_lot = "r";
+    std::string quit = "q";
 }
 
 int main() {
@@ -56,32 +56,32 @@ int main() {
             if (response == "") {
                 add_car(que);
                 clear_screen();
-            } else if (response == constant::pop_front) {
+            } else if (response == constant::exit_car) {
                 if (que.size() > 0) {
                     que.pop_front();
                 }
                 print_que(que);
-            } else if (response == constant::print_que) {
+            } else if (response == constant::print_lot) {
                 print_que(que);
-            } else if (response == constant::exit) {
+            } else if (response == constant::quit) {
                 return 0;
             }
             
             do {
                 cout<<endl
                 <<"Press [return] to enter a new car..."<<endl
-                <<"Type '"<<constant::pop_front<<"' to wash the front car"<<endl
-                <<"Type '"<<constant::print_que<<"' to view all the cars in the que"<<endl
-                <<"Type '"<<constant::exit<<"' to stop the program"<<endl
+                <<"Type '"<<constant::exit_car<<"' exit a car"<<endl
+                <<"Type '"<<constant::print_lot<<"' to view all the cars in the lot"<<endl
+                <<"Type '"<<constant::quit<<"' to stop the program"<<endl
                 <<">> ";
                 std::getline(cin, response);
                 
             } while (response != "" and
-                     response != constant::pop_front and
-                     response != constant::print_que and
-                     response != constant::exit);
+                     response != constant::exit_car and
+                     response != constant::print_lot and
+                     response != constant::quit);
             
-        } while (response != constant::exit);
+        } while (response != constant::quit);
     }
 }
 
