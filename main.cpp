@@ -9,12 +9,12 @@
 #include "car.h"
 #include <iostream>
 #include <iomanip>
-#include <deque>
+#include <set>
 
 void clear_screen();
 void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
-void add_car(std::deque<car>&);
-void print_que(std::deque<car>&);
+void add_car(std::set<car>&);
+void print_lot(std::set<car>&);
 
 namespace option {
     bool clear_screen_enabled;
@@ -29,7 +29,7 @@ namespace constant {
 
 int main() {
     using std::cout; using std::endl; using std::cin;
-    std::deque<car> que;
+    std::set<car> lot;
     
     std::string response;
     
@@ -54,15 +54,15 @@ int main() {
         do {
             clear_screen();
             if (response == "") {
-                add_car(que);
+                add_car(lot);
                 clear_screen();
             } else if (response == constant::exit_car) {
-                if (que.size() > 0) {
-                    que.pop_front();
+                if (lot.size() > 0) {
+                    // exit car
                 }
-                print_que(que);
+                print_lot(lot);
             } else if (response == constant::print_lot) {
-                print_que(que);
+                print_lot(lot);
             } else if (response == constant::quit) {
                 return 0;
             }
@@ -100,7 +100,7 @@ void print_title(std::string title, int width, char fill_char, std::ostream& out
     <<setw(width*2-(int)title.length())<<fill_char<<endl<<std::setfill(' ');
 }
 
-void add_car(std::deque<car>& que) {
+void add_car(std::set<car>& lot) {
     using std::cout; using std::endl; using std::cin;
     std::string description;
     double amount_paid;
@@ -124,10 +124,8 @@ void add_car(std::deque<car>& que) {
     
 }
 
-void print_que(std::deque<car>& que) {
-    for (size_t i = 0; i < que.size(); i++) {
-        std::cout<<que[i]<<std::endl;
-    }
+void print_lot(std::set<car>& lot) {
+    // print lot
 }
 
 std::ostream& operator << (std::ostream& out, car& c) {
