@@ -145,12 +145,12 @@ bool operator <  (const car& lhv, const car& rhv) {
     if (lhv.plate_number.length() != rhv.plate_number.length()) {
         return lhv.plate_number.length() < rhv.plate_number.length();
     }
-    // if plate_number length is equal
+    // if plate_number lengths are equal
     for (size_t i = 0; i < lhv.plate_number.length(); i++) {
         if (lhv.plate_number[i] != rhv.plate_number[i]) {
             return lhv.plate_number[i] < rhv.plate_number[i];
         }
     }
-    // if plate_number is the same
+    // if plate_numbers are equal
     return false;
 }
