@@ -15,6 +15,7 @@ void clear_screen();
 void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
 void add_car(std::set<car>&);
 void print_lot(std::set<car>&);
+std::string& capitalize(std::string&);
 
 namespace option {
     bool clear_screen_enabled;
@@ -114,7 +115,7 @@ void add_car(std::set<car>& lot) {
     <<">> ";
     std::getline(cin, description);
     
-    lot.insert(move(car(move(plate_number), move(description))));
+    lot.insert(move(car(move(capitalize(plate_number)), move(description))));
 }
 
 void print_lot(std::set<car>& lot) {
@@ -129,6 +130,15 @@ std::ostream& operator << (std::ostream& out, const car& c) {
     <<"Description: "<<c.description<<std::endl
     <<"Time in: "<<std::put_time(std::localtime(&c.time_in), "%c");
     return out;
+}
+
+std::string& capitalize(std::string& str) {
+    for (size_t i = 0; i < str.length(); i++) {
+        if (str[i] >= 0x61 and str[i] <= 0x7A) {
+            str[i] -= 0x20;
+        }
+    }
+    return str;
 }
 
 bool operator <  (const car& lhv, const car& rhv) {
