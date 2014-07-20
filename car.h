@@ -25,10 +25,6 @@ public:
     
     friend std::ostream& operator << (std::ostream&, const car&);
     friend bool operator <  (const car&, const car&);
-    friend bool operator <= (const car&, const car&);
-    friend bool operator == (const car&, const car&);
-    friend bool operator >= (const car&, const car&);
-    friend bool operator >  (const car&, const car&);
 };
 
 #endif
