@@ -1,7 +1,7 @@
 /**
  *  Michael Dorst
- *  Assignment 1
- *  Car Wash
+ *  Assignment 2
+ *  Parking Lot
  *
  *  main.cpp
  */
