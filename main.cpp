@@ -13,7 +13,6 @@
 
 void clear_screen();
 void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
-std::string& capitalize(std::string&);
 
 namespace option {
     bool clear_screen_enabled;
@@ -105,13 +104,4 @@ void print_title(std::string title, int width, char fill_char, std::ostream& out
     <<setw(width*2-(int)title.length())<<fill_char<<endl
     <<setw(width)<< title <<setw(width-(int)title.length())<<fill_char<<endl
     <<setw(width*2-(int)title.length())<<fill_char<<endl<<std::setfill(' ');
-}
-
-std::string& capitalize(std::string& str) {
-    for (size_t i = 0; i < str.length(); i++) {
-        if (str[i] >= 0x61 and str[i] <= 0x7A) {
-            str[i] -= 0x20;
-        }
-    }
-    return str;
 }

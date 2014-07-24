@@ -16,13 +16,13 @@ class car {
     std::string plate_number;
     std::string description;
     
+    void capitolize_plate_number();
+    
 public:
     
-    car(const std::string& pn, const std::string& d) :
-    plate_number(pn), description(d) {}
+    car(const std::string& pn, const std::string& d);
     
-    car(std::string&& pn, std::string&& d) :
-    plate_number(std::move(pn)), description(std::move(d)) {}
+    car(std::string&& pn, std::string&& d);
     
     friend std::ostream& operator << (std::ostream&, const car&);
     
