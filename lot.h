@@ -16,9 +16,11 @@
 class lot {
     
     std::map<std::string, car> by_plate;
-    std::multimap<date_t, car> by_date;
+    std::multimap<date, car> by_date;
     
 public:
+    
+    
     
 };
 
