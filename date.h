@@ -12,7 +12,7 @@
 #include <iostream>
 #include <ciso646>
 
-class date {
+class date_t {
     
     uint16_t _month;
     uint16_t _day;
@@ -20,7 +20,7 @@ class date {
     
 public:
     
-    date(uint16_t m = 1, uint16_t d = 1, uint16_t y = 2000) : _year(y) {
+    date_t(uint16_t m = 1, uint16_t d = 1, uint16_t y = 2000) : _year(y) {
         if (m > 0 and m <= 12) {
             _month = m;
         } else {
@@ -56,15 +56,15 @@ public:
     uint16_t day() { return _day; }
     uint16_t year() { return _year; }
     
-    friend std::ostream& operator << (std::ostream&, const date&);
-    friend std::istream& operator >> (std::istream&, date&);
+    friend std::ostream& operator << (std::ostream&, const date_t&);
+    friend std::istream& operator >> (std::istream&, date_t&);
 };
 
-std::ostream& operator << (std::ostream& out, const date& d) {
+std::ostream& operator << (std::ostream& out, const date_t& d) {
     return out<<d._month<<"/"<<d._day<<"/"<<d._year;
 }
 
-std::istream& operator >> (std::istream& in, date& d) {
+std::istream& operator >> (std::istream& in, date_t& d) {
     using std::tie;
     std::string input;
     uint16_t month, day, year;
@@ -75,7 +75,7 @@ std::istream& operator >> (std::istream& in, date& d) {
     std::getline(in, input, '\n');
     year = (uint16_t)atoi(input.c_str());
     
-    d = date(month, day, year);
+    d = date_t(month, day, year);
     if (d.month() != month or d.day() != day or d.year() != year) {
         in.setstate(std::ios::failbit);
     }
