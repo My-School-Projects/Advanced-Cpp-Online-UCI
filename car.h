@@ -1,13 +1,13 @@
 /**
  *  Michael Dorst
- *  Assignment 2
- *  Parking Lot
+ *  Assignment 3
+ *  Used Car Dealership
  *
  *  car.h
  */
 
-#ifndef Parking_Lot__car_h
-#define Parking_Lot__car_h
+#ifndef Used_Car_Dealership__car_h
+#define Used_Car_Dealership__car_h
 
 #include <string>
 #include <ctime>

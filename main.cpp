@@ -1,7 +1,7 @@
 /**
  *  Michael Dorst
- *  Assignment 2
- *  Parking Lot
+ *  Assignment 3
+ *  Used Car Dealership
  *
  *  main.cpp
  */
