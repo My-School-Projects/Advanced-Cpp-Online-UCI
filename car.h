@@ -18,6 +18,10 @@ class car {
     std::time_t time_in;
     
 public:
+    std::time_t get_time_in() {
+        return time_in;
+    }
+    
     car() = delete;
     car(std::string&& pn, std::string&& d) :
     plate_number(std::move(pn)), description(std::move(d)),
