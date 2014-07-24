@@ -10,9 +10,8 @@
 #define Used_Car_Dealership__lot_h
 
 #include "car.h"
+#include "date.h"
 #include <map>
-
-typedef unsigned date_t;
 
 class lot {
     
