@@ -58,7 +58,20 @@ int main() {
                 add_car(lot);
                 clear_screen();
             } else if (response == constant::exit_car) {
+                std::set<car>::iterator exiting_car;
                 print_lot(lot);
+                do {
+                    response = std::string();
+                    cout<<endl
+                    <<"Enter the plate number of the exiting car"<<endl
+                    <<">> ";
+                    std::getline(cin, response);
+                    exiting_car = lot.find(car(std::move(capitalize(response)), ""));
+                } while (exiting_car == lot.end());
+                clear_screen();
+                std::cout<<"The exiting car:"<<std::endl
+                <<*exiting_car<<std::endl;
+                lot.erase(exiting_car);
                 
             } else if (response == constant::print_lot) {
                 print_lot(lot);
