@@ -10,6 +10,7 @@
 #include <iostream>
 #include <iomanip>
 #include <set>
+#include <ciso646>
 
 void clear_screen();
 void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
