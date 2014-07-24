@@ -13,7 +13,7 @@
 #include "date.h"
 #include <map>
 
-class lot {
+class lot_t {
     
     std::map<std::string, car> by_plate;
     std::multimap<date, car> by_date;
