@@ -7,6 +7,7 @@
  */
 
 #include "car.h"
+#include <iostream>
 
 car_t::car_t(const std::string& pn, const std::string& d) :
 plate_number(pn), description(d), inventory_number(arc4random()) {
@@ -24,4 +25,12 @@ void car_t::capitolize_plate_number() {
             plate_number[i] -= 0x20;
         }
     }
+}
+
+std::ostream& operator << (std::ostream& out, const car_t& car) {
+    out
+    <<"Inventory #: "<<car.inventory_number
+    <<"Plate #: "<<car.plate_number<<std::endl
+    <<"Description: "<<car.description<<std::endl;
+    return out;
 }
