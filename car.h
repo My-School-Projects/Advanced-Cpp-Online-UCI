@@ -18,7 +18,7 @@ class car {
     std::time_t time_in;
     
 public:
-    std::time_t get_time_in() {
+    std::time_t get_time_in()const {
         return time_in;
     }
     
