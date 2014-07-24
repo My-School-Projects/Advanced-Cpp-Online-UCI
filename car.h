@@ -13,6 +13,7 @@
 
 class car_t {
     
+    uint32_t inventory_number;
     std::string plate_number;
     std::string description;
     

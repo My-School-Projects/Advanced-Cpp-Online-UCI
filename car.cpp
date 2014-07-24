@@ -9,12 +9,12 @@
 #include "car.h"
 
 car_t::car_t(const std::string& pn, const std::string& d) :
-plate_number(pn), description(d) {
+plate_number(pn), description(d), inventory_number(arc4random()) {
     capitolize_plate_number();
 }
 
 car_t::car_t(std::string&& pn, std::string&& d) :
-plate_number(std::move(pn)), description(std::move(d)) {
+plate_number(std::move(pn)), description(std::move(d)), inventory_number(arc4random()) {
     capitolize_plate_number();
 }
 
