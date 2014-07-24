@@ -11,7 +11,7 @@
 
 #include <string>
 
-class car {
+class car_t {
     
     std::string plate_number;
     std::string description;
@@ -20,11 +20,11 @@ class car {
     
 public:
     
-    car(const std::string& pn, const std::string& d);
+    car_t(const std::string& pn, const std::string& d);
     
-    car(std::string&& pn, std::string&& d);
+    car_t(std::string&& pn, std::string&& d);
     
-    friend std::ostream& operator << (std::ostream&, const car&);
+    friend std::ostream& operator << (std::ostream&, const car_t&);
     
 };
 
