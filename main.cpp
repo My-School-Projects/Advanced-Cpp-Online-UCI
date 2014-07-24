@@ -31,7 +31,7 @@ namespace option {
 }
 
 namespace constant {
-    std::string title = " Welcome to the Parking Lot ";
+    std::string title = " Welcome to the Used Car Dealership ";
     std::string exit_car = "x";
     std::string print_lot = "r";
     std::string quit = "q";
@@ -112,7 +112,7 @@ int main() {
 void clear_screen() {
     if (option::clear_screen_enabled) {
         if (system("cls")) system("clear");
-        print_title(constant::title, 30);
+        print_title(constant::title, 40);
     }
 }
 
