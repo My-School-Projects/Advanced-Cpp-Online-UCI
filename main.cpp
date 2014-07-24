@@ -17,6 +17,14 @@ void add_car(std::set<car>&);
 void print_lot(std::set<car>&);
 std::string& capitalize(std::string&);
 
+class time_format {
+    std::time_t time;
+public:
+    time_format() = delete;
+    time_format(std::time_t t) : time(t) {}
+    friend std::ostream& operator << (std::ostream&, const time_format&);
+};
+
 namespace option {
     bool clear_screen_enabled;
 }
@@ -67,8 +75,13 @@ int main() {
                 exiting_car = lot.find(car(std::move(capitalize(response)), ""));
             } while (exiting_car == lot.end());
             clear_screen();
+            auto current_time = std::time(nullptr);
             std::cout<<"The exiting car:"<<std::endl
-            <<*exiting_car<<std::endl;
+            <<*exiting_car<<std::endl
+            <<"Time out: "
+            <<std::put_time(std::localtime(&current_time), "%c")<<std::endl
+            <<"Time parked: "
+            <<time_format(current_time - exiting_car->get_time_in())<<std::endl;
             lot.erase(exiting_car);
             
         } else if (response == constant::print_lot) {
@@ -137,6 +150,18 @@ std::ostream& operator << (std::ostream& out, const car& c) {
     <<"Plate #: "<<c.plate_number<<std::endl
     <<"Description: "<<c.description<<std::endl
     <<"Time in: "<<std::put_time(std::localtime(&c.time_in), "%c");
+    return out;
+}
+
+std::ostream& operator << (std::ostream& out, const time_format& t_f) {
+    auto seconds = t_f.time % 60;
+    auto minutes = ((t_f.time-seconds) % 3600) / 60;
+    auto hours = ((t_f.time-seconds-minutes*60) % 86400) / 3600;
+    auto days = (t_f.time-seconds-minutes*60-hours*3600) / 864000;
+    out
+    <<days<<" Days, "
+    <<hours<<" Hours, "
+    <<minutes<<" Minutes";
     return out;
 }
 
