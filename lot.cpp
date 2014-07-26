@@ -12,6 +12,14 @@ bool lot_t::insert(car_t car) {
     using std::make_pair;
     
     bool success;
+    
+    /**
+     * 'std::map::insert' returns a 'std::pair<iterator, bool>'.
+     * The boolean is there to tell if the operation failed
+     * due to the presence of an identical key.
+     * The call to 'second' isolates the boolean
+     * for storage in 'success'.
+     */
     success = by_inv_num.insert(make_pair(car.inventory_number(), car)).second;
     if (success) {
         by_date.insert(make_pair(car.date(), car));
