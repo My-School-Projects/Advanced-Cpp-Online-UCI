@@ -12,7 +12,7 @@
 #include <ciso646>
 
 void clear_screen();
-void print_title(std::string title, int width, char = '*', std::ostream& = std::cout);
+void print_title(std::string title, int width, char = '*');
 
 namespace option {
     bool clear_screen_enabled;
@@ -98,9 +98,10 @@ void clear_screen() {
     }
 }
 
-void print_title(std::string title, int width, char fill_char, std::ostream& out) {
+void print_title(std::string title, int width, char fill_char) {
+    using std::cout;
     using std::setw; using std::endl;
-    out<<std::setfill(fill_char)<<std::right
+    cout<<std::setfill(fill_char)<<std::right
     <<setw(width*2-(int)title.length())<<fill_char<<endl
     <<setw(width)<< title <<setw(width-(int)title.length())<<fill_char<<endl
     <<setw(width*2-(int)title.length())<<fill_char<<endl<<std::setfill(' ');
