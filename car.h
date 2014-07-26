@@ -28,8 +28,8 @@ private:
     
 public:
     
-    car_t(const std::string& pn, const std::string& d);
-    car_t(std::string&& pn, std::string&& d);
+    car_t(const std::string& pn, const std::string& dscptn, const date_t& date);
+    car_t(std::string&& pn, std::string&& dscptn, const date_t& date);
     
     inv_num_t inventory_number()const;
     date_t date()const;

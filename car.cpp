@@ -8,13 +8,15 @@
 
 #include "car.h"
 
-car_t::car_t(const std::string& pn, const std::string& d) :
-plate_number(pn), description(d), inv_num(arc4random()) {
+car_t::car_t(const std::string& pn, const std::string& dscptn, const date_t& date) :
+plate_number(pn), description(dscptn),
+_date(date), inv_num(arc4random()) {
     capitolize_plate_number();
 }
 
-car_t::car_t(std::string&& pn, std::string&& d) :
-plate_number(std::move(pn)), description(std::move(d)), inv_num(arc4random()) {
+car_t::car_t(std::string&& pn, std::string&& dscptn, const date_t& date) :
+plate_number(std::move(pn)), description(std::move(dscptn)),
+_date(date), inv_num(arc4random()) {
     capitolize_plate_number();
 }
 
