@@ -18,7 +18,7 @@ plate_number(std::move(pn)), description(std::move(d)), inv_num(arc4random()) {
     capitolize_plate_number();
 }
 
-uint32_t car_t::inventory_number()const {
+car_t::inv_num_t car_t::inventory_number()const {
     return inv_num;
 }
 

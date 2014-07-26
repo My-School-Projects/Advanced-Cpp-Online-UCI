@@ -15,8 +15,11 @@
 #include <ciso646>
 
 class car_t {
+public:
+    typedef uint32_t inv_num_t;
     
-    uint32_t inv_num;
+private:
+    inv_num_t inv_num;
     date_t _date;
     std::string plate_number;
     std::string description;
@@ -28,7 +31,7 @@ public:
     car_t(const std::string& pn, const std::string& d);
     car_t(std::string&& pn, std::string&& d);
     
-    uint32_t inventory_number()const;
+    inv_num_t inventory_number()const;
     date_t date()const;
     
     friend std::ostream& operator << (std::ostream&, const car_t&);
