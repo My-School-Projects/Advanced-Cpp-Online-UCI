@@ -7,7 +7,6 @@
  */
 
 #include "car.h"
-#include <iostream>
 
 car_t::car_t(const std::string& pn, const std::string& d) :
 plate_number(pn), description(d), inventory_number(arc4random()) {

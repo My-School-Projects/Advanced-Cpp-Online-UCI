@@ -10,6 +10,7 @@
 #define Used_Car_Dealership__car_h
 
 #include "date.h"
+#include <iostream>
 #include <string>
 
 class car_t {
