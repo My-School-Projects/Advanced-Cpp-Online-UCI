@@ -18,6 +18,14 @@ plate_num(std::move(pn)), description(std::move(d)), inv_num(arc4random()) {
     capitolize_plate_number();
 }
 
+uint32_t car_t::inventory_number()const {
+    return inv_num;
+}
+
+date_t car_t::date()const {
+    return _date;
+}
+
 void car_t::capitolize_plate_number() {
     for (size_t i = 0; i < plate_num.length(); i++) {
         if (plate_num[i] >= 0x61 and plate_num[i] <= 0x7A) {
