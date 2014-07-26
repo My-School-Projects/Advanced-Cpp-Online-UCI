@@ -10,7 +10,7 @@
 
 
 std::ostream& operator << (std::ostream& out, const date_t& d) {
-    return out<<d._month<<"/"<<d._day<<"/"<<d._year;
+    return out<<d.month()<<"/"<<d.day()<<"/"<<d.year();
 }
 
 std::istream& operator >> (std::istream& in, date_t& d) {

@@ -52,11 +52,10 @@ public:
         }
     }
     
-    uint16_t month() { return _month; }
-    uint16_t day() { return _day; }
-    uint16_t year() { return _year; }
+    uint16_t month()const { return _month; }
+    uint16_t day()const { return _day; }
+    uint16_t year()const { return _year; }
     
-    friend std::ostream& operator << (std::ostream&, const date_t&);
     friend std::istream& operator >> (std::istream&, date_t&);
 };
 
