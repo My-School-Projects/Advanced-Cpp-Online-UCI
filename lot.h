@@ -10,7 +10,6 @@
 #define Used_Car_Dealership__lot_h
 
 #include "car.h"
-#include "date.h"
 #include <map>
 
 class lot_t {

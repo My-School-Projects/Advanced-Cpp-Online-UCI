@@ -9,6 +9,7 @@
 #ifndef Used_Car_Dealership__car_h
 #define Used_Car_Dealership__car_h
 
+#include "date.h"
 #include <string>
 
 class car_t {
