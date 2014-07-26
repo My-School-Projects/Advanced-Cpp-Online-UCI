@@ -11,6 +11,7 @@
 
 #include "car.h"
 #include <map>
+#include <ciso646>
 
 class lot_t {
     
