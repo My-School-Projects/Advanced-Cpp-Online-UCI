@@ -8,6 +8,17 @@
 
 #include "date.h"
 
+bool operator < (const date_t& lhv, const date_t& rhv) {
+    if (lhv.year() == rhv.year()) {
+        if (lhv.month() == rhv.month()) {
+            return lhv.day() < rhv.day();
+        } else {
+            return lhv.month() < rhv.month();
+        }
+    } else {
+        return lhv.year() < rhv.year();
+    }
+}
 
 std::ostream& operator << (std::ostream& out, const date_t& d) {
     return out<<d.month()<<"/"<<d.day()<<"/"<<d.year();

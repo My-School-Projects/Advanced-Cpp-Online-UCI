@@ -59,4 +59,6 @@ public:
     friend std::istream& operator >> (std::istream&, date_t&);
 };
 
+bool operator < (const date_t&, const date_t&);
+
 #endif
