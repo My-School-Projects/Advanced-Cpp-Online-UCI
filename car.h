@@ -16,8 +16,8 @@
 
 class car_t {
     
-    uint32_t inventory_number;
-    std::string plate_number;
+    uint32_t inv_num;
+    std::string plate_num;
     std::string description;
     
     void capitolize_plate_number();
@@ -25,7 +25,6 @@ class car_t {
 public:
     
     car_t(const std::string& pn, const std::string& d);
-    
     car_t(std::string&& pn, std::string&& d);
     
     friend std::ostream& operator << (std::ostream&, const car_t&);
