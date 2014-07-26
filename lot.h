@@ -20,7 +20,7 @@ class lot_t {
     
 public:
     
-    
+    bool insert(car_t car);
     
 };
 
