@@ -15,7 +15,7 @@
 
 class lot_t {
     
-    std::map<std::string, car_t> by_plate;
+    std::map<car_t::inv_num_t, car_t> by_inv_num;
     std::multimap<date_t, car_t> by_date;
     
 public:
