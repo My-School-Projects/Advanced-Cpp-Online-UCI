@@ -7,7 +7,6 @@
  */
 
 #include "date.h"
-#include <ciso646>
 
 
 std::ostream& operator << (std::ostream& out, const date_t& d) {

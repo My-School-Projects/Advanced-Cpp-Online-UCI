@@ -12,6 +12,7 @@
 #include "date.h"
 #include <iostream>
 #include <string>
+#include <ciso646>
 
 class car_t {
     
