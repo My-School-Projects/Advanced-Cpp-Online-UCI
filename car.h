@@ -18,7 +18,7 @@ class car_t {
     
     uint32_t inv_num;
     date_t _date;
-    std::string plate_num;
+    std::string plate_number;
     std::string description;
     
     void capitolize_plate_number();

@@ -9,12 +9,12 @@
 #include "car.h"
 
 car_t::car_t(const std::string& pn, const std::string& d) :
-plate_num(pn), description(d), inv_num(arc4random()) {
+plate_number(pn), description(d), inv_num(arc4random()) {
     capitolize_plate_number();
 }
 
 car_t::car_t(std::string&& pn, std::string&& d) :
-plate_num(std::move(pn)), description(std::move(d)), inv_num(arc4random()) {
+plate_number(std::move(pn)), description(std::move(d)), inv_num(arc4random()) {
     capitolize_plate_number();
 }
 
@@ -27,9 +27,9 @@ date_t car_t::date()const {
 }
 
 void car_t::capitolize_plate_number() {
-    for (size_t i = 0; i < plate_num.length(); i++) {
-        if (plate_num[i] >= 0x61 and plate_num[i] <= 0x7A) {
-            plate_num[i] -= 0x20;
+    for (size_t i = 0; i < plate_number.length(); i++) {
+        if (plate_number[i] >= 0x61 and plate_number[i] <= 0x7A) {
+            plate_number[i] -= 0x20;
         }
     }
 }
@@ -37,7 +37,7 @@ void car_t::capitolize_plate_number() {
 std::ostream& operator << (std::ostream& out, const car_t& car) {
     out
     <<"Inventory #: "<<car.inv_num
-    <<"Plate #: "<<car.plate_num<<std::endl
+    <<"Plate #: "<<car.plate_number<<std::endl
     <<"Description: "<<car.description<<std::endl;
     return out;
 }
