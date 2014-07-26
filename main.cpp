@@ -13,6 +13,7 @@
 
 void clear_screen();
 void print_title(std::string title, int width, char = '*');
+void add_car(lot_t&);
 
 namespace option {
     bool clear_screen_enabled;
@@ -27,6 +28,8 @@ namespace constant {
 
 int main() {
     using std::cout; using std::endl; using std::cin;
+    
+    lot_t lot;
     
     std::string response;
     
@@ -50,7 +53,7 @@ int main() {
     
     do {
         if (response == "") {
-            // add car
+            add_car(lot);
             clear_screen();
         } else if (response == constant::exit_car) {
             // print lot
@@ -89,6 +92,45 @@ int main() {
                  response != constant::quit);
         
     } while (response != constant::quit);
+}
+
+void add_car(lot_t& lot) {
+    using std::cin; using std::cout; using std::endl; using std::move;
+    std::string plate_number;
+    std::string description;
+    date_t date;
+    
+    cout<<endl<<endl
+    <<"Enter the car's licence plate #"<<endl
+    <<">> ";
+    std::getline(cin, plate_number);
+    cout<<endl
+    <<"Enter the car's description"<<endl
+    <<">> ";
+    std::getline(cin, description);
+    cout<<endl
+    <<"Enter the date the car was bought (mm/dd/yyyy)"<<endl
+    <<">> ";
+    do {
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout<<"Please enter a date in the format (mm/dd/yyyy)"<<endl
+            <<">>";
+        }
+        cin>>date;
+    } while (cin.fail());
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    
+    /**
+     * It is extremely unlikely, but still technically possible
+     * that car_t's constructor will create a car with the same
+     * inventory number as one already in lot. The call to insert
+     * is the condition to the following empty while loop so that,
+     * if this were to happen, a new car will be constructed with
+     * the same data, and lot.insert will be called again.
+     */
+    while (lot.insert(car_t(plate_number, description, date)) == false) {}
 }
 
 void clear_screen() {
