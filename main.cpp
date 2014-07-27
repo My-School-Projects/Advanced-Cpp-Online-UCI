@@ -123,7 +123,6 @@ void add_car(lot_t& lot) {
         }
         cin>>date;
     } while (cin.fail());
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
     /**
      * It is extremely unlikely, but still technically possible
