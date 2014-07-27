@@ -130,8 +130,8 @@ void add_car(lot_t& lot) {
      * that car_t's constructor will create a car with the same
      * inventory number as one already in lot. The call to insert
      * is the condition to the following empty while loop so that,
-     * if this were to happen, a new car will be constructed with
-     * the same data, and lot.insert will be called again.
+     * if this were to happen, a new car would be constructed with
+     * the same data, and lot.insert would be called again.
      */
     while (lot.insert(car_t(plate_number, description, date)) == false) {}
 }
