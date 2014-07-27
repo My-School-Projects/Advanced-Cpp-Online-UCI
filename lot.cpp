@@ -27,18 +27,18 @@ bool lot_t::insert(car_t car) {
     return success;
 }
 
-std::map<car_t::inv_num_t, car_t>::const_iterator lot_t::begin_by_inv_num()const {
+std::map<car_t::inv_num_t, car_t>::const_iterator lot_t::cbegin_by_inv_num()const {
     return by_inv_num.cbegin();
 }
 
-std::map<car_t::inv_num_t, car_t>::const_iterator lot_t::end_by_inv_num()const {
+std::map<car_t::inv_num_t, car_t>::const_iterator lot_t::cend_by_inv_num()const {
     return by_inv_num.cend();
 }
 
-std::multimap<date_t, car_t>::const_iterator lot_t::begin_by_date()const {
+std::multimap<date_t, car_t>::const_iterator lot_t::cbegin_by_date()const {
     return by_date.cbegin();
 }
 
-std::multimap<date_t, car_t>::const_iterator lot_t::end_by_date()const {
+std::multimap<date_t, car_t>::const_iterator lot_t::cend_by_date()const {
     return by_date.cend();
 }
