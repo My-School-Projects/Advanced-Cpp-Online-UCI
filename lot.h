@@ -22,10 +22,10 @@ public:
     
     bool insert(car_t car);
     
-    std::map<car_t::inv_num_t, car_t>::iterator begin_by_inv_num();
-    std::map<car_t::inv_num_t, car_t>::iterator end_by_inv_num();
-    std::multimap<date_t, car_t>::iterator begin_by_date();
-    std::multimap<date_t, car_t>::iterator end_by_date();
+    std::map<car_t::inv_num_t, car_t>::const_iterator begin_by_inv_num();
+    std::map<car_t::inv_num_t, car_t>::const_iterator end_by_inv_num();
+    std::multimap<date_t, car_t>::const_iterator begin_by_date();
+    std::multimap<date_t, car_t>::const_iterator end_by_date();
     
 };
 
