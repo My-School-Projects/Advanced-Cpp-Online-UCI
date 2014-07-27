@@ -14,6 +14,7 @@
 void clear_screen();
 void print_title(std::string title, int width, char = '*');
 void add_car(lot_t&);
+void print_lot(const lot_t&);
 
 namespace option {
     bool clear_screen_enabled;
@@ -24,6 +25,8 @@ namespace constant {
     std::string exit_car = "x";
     std::string print_lot = "r";
     std::string quit = "q";
+    std::string by_inv_num = "i";
+    std::string by_date = "d";
 }
 
 int main() {
@@ -131,6 +134,35 @@ void add_car(lot_t& lot) {
      * the same data, and lot.insert will be called again.
      */
     while (lot.insert(car_t(plate_number, description, date)) == false) {}
+}
+
+void print_lot(const lot_t& lot) {
+    using std::endl;
+    std::string response;
+    do {
+        std::cout<<endl
+        <<"Type '"<<constant::by_inv_num
+        <<"' to view cars sorted by inventory number"<<endl
+        <<"Type '"<<constant::by_date
+        <<"' to view cars sorted by date"<<endl
+        <<">> ";
+        std::getline(std::cin, response);
+        clear_screen();
+    } while (response != constant::by_date and
+             response != constant::by_inv_num);
+    if (response == constant::by_date) {
+        for (auto i = lot.cbegin_by_date(); i != lot.cend_by_date(); i++) {
+            /**
+             * Dereferencing i (*i) returns std::pair<date_t, car_t>.
+             * To access the second element (the car_t), we use i->second.
+             */
+            std::cout<<endl<<i->second;
+        }
+    } else {
+        for (auto i = lot.cbegin_by_inv_num(); i != lot.cend_by_inv_num(); i++) {
+            std::cout<<endl<<i->second;
+        }
+    }
 }
 
 void clear_screen() {
