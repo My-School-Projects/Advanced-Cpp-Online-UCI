@@ -38,7 +38,7 @@ void car_t::capitolize_plate_number() {
 
 std::ostream& operator << (std::ostream& out, const car_t& car) {
     out
-    <<"Inventory #: "<<car.inv_num
+    <<"Inventory #: "<<car.inv_num<<std::endl
     <<"Plate #: "<<car.plate_number<<std::endl
     <<"Description: "<<car.description<<std::endl;
     return out;
