@@ -59,7 +59,7 @@ int main() {
             add_car(lot);
             clear_screen();
         } else if (response == constant::exit_car) {
-            // print lot
+            print_lot(lot);
             do {
                 response = std::string();
                 cout<<endl
@@ -74,7 +74,7 @@ int main() {
             // delete exiting car
             
         } else if (response == constant::print_lot) {
-            // print lot
+            print_lot(lot);
         } else if (response == constant::quit) {
             return 0;
         }
