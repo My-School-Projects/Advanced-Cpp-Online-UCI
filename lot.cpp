@@ -27,18 +27,34 @@ bool lot_t::insert(car_t car) {
     return success;
 }
 
-std::map<car_t::inv_num_t, car_t>::const_iterator lot_t::cbegin_by_inv_num()const {
+lot_t::iterator_by_inv_num lot_t::begin_by_inv_num() {
+    return by_inv_num.begin();
+}
+
+lot_t::iterator_by_inv_num lot_t::end_by_inv_num() {
+    return by_inv_num.end();
+}
+
+lot_t::iterator_by_date lot_t::begin_by_date() {
+    return by_date.begin();
+}
+
+lot_t::iterator_by_date lot_t::end_by_date() {
+    return by_date.end();
+}
+
+lot_t::const_iterator_by_inv_num lot_t::cbegin_by_inv_num()const {
     return by_inv_num.cbegin();
 }
 
-std::map<car_t::inv_num_t, car_t>::const_iterator lot_t::cend_by_inv_num()const {
+lot_t::const_iterator_by_inv_num lot_t::cend_by_inv_num()const {
     return by_inv_num.cend();
 }
 
-std::multimap<date_t, car_t>::const_iterator lot_t::cbegin_by_date()const {
+lot_t::const_iterator_by_date lot_t::cbegin_by_date()const {
     return by_date.cbegin();
 }
 
-std::multimap<date_t, car_t>::const_iterator lot_t::cend_by_date()const {
+lot_t::const_iterator_by_date lot_t::cend_by_date()const {
     return by_date.cend();
 }

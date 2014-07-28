@@ -151,15 +151,11 @@ void print_lot(const lot_t& lot) {
              response != constant::by_inv_num);
     if (response == constant::by_date) {
         for (auto i = lot.cbegin_by_date(); i != lot.cend_by_date(); i++) {
-            /**
-             * Dereferencing i (*i) returns std::pair<date_t, car_t>.
-             * To access the second element (the car_t), we use i->second.
-             */
-            std::cout<<endl<<i->second;
+            std::cout<<endl<<*i;
         }
     } else {
         for (auto i = lot.cbegin_by_inv_num(); i != lot.cend_by_inv_num(); i++) {
-            std::cout<<endl<<i->second;
+            std::cout<<endl<<*i;
         }
     }
 }
