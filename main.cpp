@@ -199,6 +199,7 @@ void exit_car(lot_t& lot) {
             } else {
                 cout<<"The exiting car:"<<endl<<*it<<endl;
                 lot.erase(it);
+                break;
             }
         } while (true);
     } else {
@@ -222,6 +223,7 @@ void exit_car(lot_t& lot) {
             } else {
                 cout<<"The exiting car:"<<endl<<*it<<endl;
                 lot.erase(it);
+                break;
             }
         } while (true);
     }
