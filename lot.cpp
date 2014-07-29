@@ -27,34 +27,34 @@ bool lot_t::insert(car_t car) {
     return success;
 }
 
-lot_t::iter<lot_t::map_by_inv_num::iterator> lot_t::begin_by_inv_num() {
+lot_t::iterator_by_inv_num lot_t::begin_by_inv_num() {
     return by_inv_num.begin();
 }
 
-lot_t::iter<lot_t::map_by_inv_num::iterator> lot_t::end_by_inv_num() {
+lot_t::iterator_by_inv_num lot_t::end_by_inv_num() {
     return by_inv_num.end();
 }
 
-lot_t::iter<lot_t::map_by_date::iterator> lot_t::begin_by_date() {
+lot_t::iterator_by_date lot_t::begin_by_date() {
     return by_date.begin();
 }
 
-lot_t::iter<lot_t::map_by_date::iterator> lot_t::end_by_date() {
+lot_t::iterator_by_date lot_t::end_by_date() {
     return by_date.end();
 }
 
-lot_t::iter<lot_t::map_by_inv_num::const_iterator> lot_t::cbegin_by_inv_num()const {
+lot_t::const_iterator_by_inv_num lot_t::cbegin_by_inv_num()const {
     return by_inv_num.cbegin();
 }
 
-lot_t::iter<lot_t::map_by_inv_num::const_iterator> lot_t::cend_by_inv_num()const {
+lot_t::const_iterator_by_inv_num lot_t::cend_by_inv_num()const {
     return by_inv_num.cend();
 }
 
-lot_t::iter<lot_t::map_by_date::const_iterator> lot_t::cbegin_by_date()const {
+lot_t::const_iterator_by_date lot_t::cbegin_by_date()const {
     return by_date.cbegin();
 }
 
-lot_t::iter<lot_t::map_by_date::const_iterator> lot_t::cend_by_date()const {
+lot_t::const_iterator_by_date lot_t::cend_by_date()const {
     return by_date.cend();
 }
