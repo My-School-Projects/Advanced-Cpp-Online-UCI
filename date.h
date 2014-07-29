@@ -26,6 +26,7 @@ public:
     uint16_t year()const;
     
     friend std::istream& operator >> (std::istream&, date_t&);
+    friend std::ostream& operator << (std::ostream&, const date_t&);
 };
 
 bool operator < (const date_t&, const date_t&);
