@@ -15,7 +15,10 @@ void clear_screen();
 void print_title(std::string title, int width, char = '*');
 void add_car(lot_t&);
 void exit_car(lot_t&);
-void print_lot(const lot_t&);
+enum sort {
+    by_inv_num, by_date, ask
+};
+void print_lot(const lot_t&, sort = ask);
 
 namespace option {
     bool clear_screen_enabled;
@@ -123,20 +126,26 @@ void add_car(lot_t& lot) {
     while (lot.insert(car_t(plate_number, description, date)) == false) {}
 }
 
-void print_lot(const lot_t& lot) {
+void print_lot(const lot_t& lot, sort sort) {
     using std::endl;
     std::string response;
-    do {
-        std::cout<<endl
-        <<"Type '"<<constant::by_inv_num
-        <<"' to view cars sorted by inventory number"<<endl
-        <<"Type '"<<constant::by_date
-        <<"' to view cars sorted by date"<<endl
-        <<">> ";
-        std::getline(std::cin, response);
-        clear_screen();
-    } while (response != constant::by_date and
-             response != constant::by_inv_num);
+    if (sort == ask) {
+        do {
+            std::cout<<endl
+            <<"Type '"<<constant::by_inv_num
+            <<"' to view cars sorted by inventory number"<<endl
+            <<"Type '"<<constant::by_date
+            <<"' to view cars sorted by date"<<endl
+            <<">> ";
+            std::getline(std::cin, response);
+            clear_screen();
+        } while (response != constant::by_date and
+                 response != constant::by_inv_num);
+    } else if (sort == by_date) {
+        response = constant::by_date;
+    } else {
+        response = constant::by_inv_num;
+    }
     if (response == constant::by_date) {
         for (auto i = lot.cbegin_by_date(); i != lot.cend_by_date(); i++) {
             std::cout<<endl<<*i;
@@ -163,7 +172,11 @@ void exit_car(lot_t& lot) {
     } while (response != constant::by_date and
              response != constant::by_inv_num);
     clear_screen();
-    print_lot(lot);
+    if (response == constant::by_date) {
+        print_lot(lot, by_date);
+    } else {
+        print_lot(lot, by_inv_num);
+    }
     if (response == constant::by_date) {
         cout<<endl
         <<"Enter the date the car was bought (mm/dd/yyyy)"<<endl
