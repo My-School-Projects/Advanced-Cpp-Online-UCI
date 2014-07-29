@@ -10,9 +10,16 @@
 #include <iostream>
 #include <iomanip>
 #include <ciso646>
+#include "io_helper.h"
+
+
+using std::cout;
+using std::endl;
+using std::cin;
+using std::string;
 
 void clear_screen();
-void print_title(std::string title, int width, char = '*');
+void print_title(string title, int width, char = '*');
 void add_car(lot_t&);
 void exit_car(lot_t&);
 enum sort {
@@ -20,42 +27,12 @@ enum sort {
 };
 void print_lot(const lot_t&, sort = ask);
 
-namespace option {
-    bool clear_screen_enabled;
-}
-
-namespace constant {
-    std::string title = " Welcome to the Used Car Dealership ";
-    std::string exit_car = "x";
-    std::string print_lot = "r";
-    std::string quit = "q";
-    std::string by_inv_num = "i";
-    std::string by_date = "d";
-}
-
 int main() {
-    using std::cout; using std::endl; using std::cin;
     
     lot_t lot;
     
-    std::string response;
+    string response;
     
-    cout<<"This program would like your permission to clear the terminal."<<endl
-    <<"Warning: this option is designed to work on MS-DOS and UNIX based"<<endl
-    <<"systems only (including Windows, Linux and OS X)."<<endl;
-    
-    while (true) {
-        cout<<"[Y]es or [N]o?"<<endl
-        <<">> ";
-        std::getline(cin, response);
-        if (response[0] == 'y' or response[0] == 'Y') {
-            option::clear_screen_enabled = true;
-            break;
-        } else if (response[0] == 'n' or response[0] == 'N') {
-            option::clear_screen_enabled = false;
-            break;
-        }
-    }
     clear_screen();
     
     do {
@@ -89,31 +66,15 @@ int main() {
 }
 
 void add_car(lot_t& lot) {
-    using std::cin; using std::cout; using std::endl; using std::move;
-    std::string plate_number;
-    std::string description;
-    date_t date;
+    string plate_number;
+    string description;
     
-    cout<<endl<<endl
-    <<"Enter the car's licence plate #"<<endl
-    <<">> ";
-    std::getline(cin, plate_number);
-    cout<<endl
-    <<"Enter the car's description"<<endl
-    <<">> ";
-    std::getline(cin, description);
-    cout<<endl
-    <<"Enter the date the car was bought (mm/dd/yyyy)"<<endl
-    <<">> ";
-    do {
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cout<<"Please enter a date in the format (mm/dd/yyyy)"<<endl
-            <<">>";
-        }
-        cin>>date;
-    } while (cin.fail());
+    cout<<endl;
+    plate_number = get_input<string>("Enter the car's licence plate #");
+    description = get_input<string>("Enter the car's description");
+    date_t date = get_input<date_t>
+    ("Enter the date the car was bought (mm/dd/yyyy)",
+     "Please enter a date in the format (mm/dd/yyyy)");
     
     /**
      * It is extremely unlikely, but still technically possible
@@ -127,17 +88,16 @@ void add_car(lot_t& lot) {
 }
 
 void print_lot(const lot_t& lot, sort sort) {
-    using std::endl;
-    std::string response;
+    string response;
     if (sort == ask) {
         do {
-            std::cout<<endl
+            cout<<endl
             <<"Type '"<<constant::by_inv_num
             <<"' to view cars sorted by inventory number"<<endl
             <<"Type '"<<constant::by_date
             <<"' to view cars sorted by date"<<endl
             <<">> ";
-            std::getline(std::cin, response);
+            std::getline(cin, response);
             clear_screen();
         } while (response != constant::by_date and
                  response != constant::by_inv_num);
@@ -148,26 +108,25 @@ void print_lot(const lot_t& lot, sort sort) {
     }
     if (response == constant::by_date) {
         for (auto i = lot.cbegin_by_date(); i != lot.cend_by_date(); i++) {
-            std::cout<<endl<<*i;
+            cout<<endl<<*i;
         }
     } else {
         for (auto i = lot.cbegin_by_inv_num(); i != lot.cend_by_inv_num(); i++) {
-            std::cout<<endl<<*i;
+            cout<<endl<<*i;
         }
     }
 }
 
 void exit_car(lot_t& lot) {
-    using std::cout; using std::cin; using std::endl;
-    std::string response;
+    string response;
     do {
-        std::cout<<endl
+        cout<<endl
         <<"Type '"<<constant::by_inv_num
         <<"' to select car by inventory number"<<endl
         <<"Type '"<<constant::by_date
         <<"' to select car by date"<<endl
         <<">> ";
-        std::getline(std::cin, response);
+        std::getline(cin, response);
         clear_screen();
     } while (response != constant::by_date and
              response != constant::by_inv_num);
@@ -178,20 +137,10 @@ void exit_car(lot_t& lot) {
         print_lot(lot, by_inv_num);
     }
     if (response == constant::by_date) {
-        cout<<endl
-        <<"Enter the date the car was bought (mm/dd/yyyy)"<<endl
-        <<">> ";
         do {
-            date_t date;
-            do {
-                if (cin.fail()) {
-                    cin.clear();
-                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Please enter a date in the format (mm/dd/yyyy)"<<endl
-                    <<">>";
-                }
-                cin>>date;
-            } while (cin.fail());
+            date_t date = get_input<date_t>
+            ("Enter the date the car was bought (mm/dd/yyyy)",
+             "Please enter a date in the format (mm/dd/yyyy)");
             auto it = lot.find_by_date(date);
             if (it == lot.end_by_date()) {
                 cout<<"No car was found for the date "<<date<<"."<<endl;
@@ -204,20 +153,10 @@ void exit_car(lot_t& lot) {
             }
         } while (true);
     } else {
-        cout<<endl
-        <<"Enter the the inventory number for the car"<<endl
-        <<">> ";
         do {
-            car_t::inv_num_t inv_num;
-            do {
-                if (cin.fail()) {
-                    cin.clear();
-                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Please enter a valid inventory number"<<endl
-                    <<">>";
-                }
-                cin>>inv_num;
-            } while (cin.fail());
+            car_t::inv_num_t inv_num = get_input<car_t::inv_num_t>
+            ("Enter the the inventory number for the car",
+             "Please enter a valid inventory number");
             auto it = lot.find_by_inv_num(inv_num);
             if (it == lot.end_by_inv_num()) {
                 continue;
@@ -238,9 +177,8 @@ void clear_screen() {
     }
 }
 
-void print_title(std::string title, int width, char fill_char) {
-    using std::cout;
-    using std::setw; using std::endl;
+void print_title(string title, int width, char fill_char) {
+    using std::setw;
     cout<<std::setfill(fill_char)<<std::right
     <<setw(width*2-(int)title.length())<<fill_char<<endl
     <<setw(width)<< title <<setw(width-(int)title.length())<<fill_char<<endl
