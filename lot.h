@@ -23,6 +23,7 @@ class lot_t {
     
     template <class It>
     class iter {
+        friend lot_t;
         It _it;
     public:
         iter() = default;
@@ -50,6 +51,9 @@ public:
     typedef iter<map_by_date::const_iterator> const_iterator_by_date;
     
     bool insert(car_t car);
+    
+    void erase(const iterator_by_inv_num& it);
+    void erase(const iterator_by_date& it);
     
     iterator_by_inv_num find_by_inv_num(const car_t::inv_num_t& inv_num);
     iterator_by_date find_by_date(const date_t& date);
