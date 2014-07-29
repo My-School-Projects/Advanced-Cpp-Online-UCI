@@ -47,11 +47,8 @@ public:
     bool insert(car_t car);
     
     typedef iter<map_by_inv_num::iterator> iterator_by_inv_num;
-    
     typedef iter<map_by_inv_num::const_iterator> const_iterator_by_inv_num;
-    
     typedef iter<map_by_date::iterator> iterator_by_date;
-    
     typedef iter<map_by_date::const_iterator> const_iterator_by_date;
     
     iterator_by_inv_num begin_by_inv_num();
