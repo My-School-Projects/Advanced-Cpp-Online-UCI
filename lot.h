@@ -46,22 +46,14 @@ public:
     
     bool insert(car_t car);
     
-    typedef iter<map_by_inv_num::iterator> iterator_by_inv_num;
-    
-    typedef iter<map_by_inv_num::const_iterator> const_iterator_by_inv_num;
-    
-    typedef iter<map_by_date::iterator> iterator_by_date;
-    
-    typedef iter<map_by_date::const_iterator> const_iterator_by_date;
-    
-    iterator_by_inv_num begin_by_inv_num();
-    iterator_by_inv_num end_by_inv_num();
-    iterator_by_date begin_by_date();
-    iterator_by_date end_by_date();
-    const_iterator_by_inv_num cbegin_by_inv_num()const;
-    const_iterator_by_inv_num cend_by_inv_num()const;
-    const_iterator_by_date cbegin_by_date()const;
-    const_iterator_by_date cend_by_date()const;
+    iter<map_by_inv_num::iterator> begin_by_inv_num();
+    iter<map_by_inv_num::iterator> end_by_inv_num();
+    iter<map_by_date::iterator> begin_by_date();
+    iter<map_by_date::iterator> end_by_date();
+    iter<map_by_inv_num::const_iterator> cbegin_by_inv_num()const;
+    iter<map_by_inv_num::const_iterator> cend_by_inv_num()const;
+    iter<map_by_date::const_iterator> cbegin_by_date()const;
+    iter<map_by_date::const_iterator> cend_by_date()const;
     
 };
 
