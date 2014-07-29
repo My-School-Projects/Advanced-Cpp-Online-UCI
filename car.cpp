@@ -40,6 +40,7 @@ std::ostream& operator << (std::ostream& out, const car_t& car) {
     out
     <<"Inventory #: "<<car.inv_num<<std::endl
     <<"Plate #: "<<car.plate_number<<std::endl
-    <<"Description: "<<car.description<<std::endl;
+    <<"Description: "<<car.description<<std::endl
+    <<"Date purchased: "<<car.date()<<std::endl;
     return out;
 }
