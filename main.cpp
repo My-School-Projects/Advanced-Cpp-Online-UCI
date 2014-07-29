@@ -197,7 +197,8 @@ void exit_car(lot_t& lot) {
                 cout<<"No car was found for the date "<<date<<"."<<endl;
                 continue;
             } else {
-                cout<<"The exiting car:"<<endl<<*it<<endl;
+                clear_screen();
+                cout<<endl<<"The exiting car:"<<endl<<*it<<endl;
                 lot.erase(it);
                 break;
             }
@@ -221,7 +222,8 @@ void exit_car(lot_t& lot) {
             if (it == lot.end_by_inv_num()) {
                 continue;
             } else {
-                cout<<"The exiting car:"<<endl<<*it<<endl;
+                clear_screen();
+                cout<<endl<<"The exiting car:"<<endl<<*it<<endl;
                 lot.erase(it);
                 break;
             }
