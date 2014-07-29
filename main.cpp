@@ -69,7 +69,7 @@ int main() {
                 // find car
             } while (false /* car not found */);
             clear_screen();
-
+            
             // print information about exiting car
             // delete exiting car
             
