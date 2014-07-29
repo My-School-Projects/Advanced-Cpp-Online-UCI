@@ -27,6 +27,14 @@ bool lot_t::insert(car_t car) {
     return success;
 }
 
+lot_t::iterator_by_inv_num lot_t::find_by_inv_num(const car_t::inv_num_t& inv_num) {
+    return by_inv_num.find(inv_num);
+}
+
+lot_t::iterator_by_date lot_t::find_by_date(const date_t& date) {
+    return by_date.find(date);
+}
+
 lot_t::iterator_by_inv_num lot_t::begin_by_inv_num() {
     return by_inv_num.begin();
 }

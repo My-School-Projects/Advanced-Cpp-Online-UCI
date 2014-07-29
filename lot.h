@@ -44,12 +44,15 @@ class lot_t {
     
 public:
     
-    bool insert(car_t car);
-    
     typedef iter<map_by_inv_num::iterator> iterator_by_inv_num;
     typedef iter<map_by_inv_num::const_iterator> const_iterator_by_inv_num;
     typedef iter<map_by_date::iterator> iterator_by_date;
     typedef iter<map_by_date::const_iterator> const_iterator_by_date;
+    
+    bool insert(car_t car);
+    
+    iterator_by_inv_num find_by_inv_num(const car_t::inv_num_t& inv_num);
+    iterator_by_date find_by_date(const date_t& date);
     
     iterator_by_inv_num begin_by_inv_num();
     iterator_by_inv_num end_by_inv_num();
