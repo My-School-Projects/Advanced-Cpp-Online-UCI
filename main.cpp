@@ -37,6 +37,7 @@ int main() {
     
     do {
         if (response == "") {
+            cout<<endl;
             add_car(lot);
             clear_screen();
         } else if (response == constant::exit_car) {
@@ -66,12 +67,9 @@ int main() {
 }
 
 void add_car(lot_t& lot) {
-    string plate_number;
-    string description;
     
-    cout<<endl;
-    plate_number = get_input<string>("Enter the car's licence plate #");
-    description = get_input<string>("Enter the car's description");
+    string plate_number = get_input<string>("Enter the car's licence plate #");
+    string description = get_input<string>("Enter the car's description");
     date_t date = get_input<date_t>
     ("Enter the date the car was bought (mm/dd/yyyy)",
      "Please enter a date in the format (mm/dd/yyyy)");
