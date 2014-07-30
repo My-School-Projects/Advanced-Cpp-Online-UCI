@@ -154,6 +154,8 @@ void exit_car(lot_t& lot) {
              "Please enter a valid inventory number");
             auto it = lot.find_by_inv_num(inv_num);
             if (it == lot.end_by_inv_num()) {
+                cout<<"No car was found with the inventory number "
+                <<inv_num<<"."<<endl;
                 continue;
             } else {
                 clear_screen();
