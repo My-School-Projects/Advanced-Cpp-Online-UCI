@@ -76,6 +76,7 @@ std::istream& operator >> (std::istream& in, date_t& d) {
     day = (uint16_t)atoi(input.c_str());
     std::getline(in, input, '\n');
     year = (uint16_t)atoi(input.c_str());
+    std::cin.putback('\n');
     
     d = date_t(month, day, year);
     if (d.month() != month or d.day() != day or d.year() != year) {
