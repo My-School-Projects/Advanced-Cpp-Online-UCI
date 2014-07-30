@@ -15,11 +15,11 @@
 
 class lot_t {
     
-    typedef std::map<car_t::inv_num_t, car_t> map_by_inv_num;
-    typedef std::multimap<date_t, car_t> map_by_date;
+    typedef std::map<car_t::inv_num_t, car_t> map_by_inv_num_t;
+    typedef std::multimap<date_t, car_t> map_by_date_t;
     
-    map_by_inv_num by_inv_num;
-    map_by_date by_date;
+    map_by_inv_num_t map_by_inv_num;
+    map_by_date_t map_by_date;
     
     template <class It>
     class iter {
@@ -45,10 +45,10 @@ class lot_t {
     
 public:
     
-    typedef iter<map_by_inv_num::iterator> iterator_by_inv_num;
-    typedef iter<map_by_inv_num::const_iterator> const_iterator_by_inv_num;
-    typedef iter<map_by_date::iterator> iterator_by_date;
-    typedef iter<map_by_date::const_iterator> const_iterator_by_date;
+    typedef iter<map_by_inv_num_t::iterator> iterator_by_inv_num;
+    typedef iter<map_by_inv_num_t::const_iterator> const_iterator_by_inv_num;
+    typedef iter<map_by_date_t::iterator> iterator_by_date;
+    typedef iter<map_by_date_t::const_iterator> const_iterator_by_date;
     
     bool insert(car_t car);
     
