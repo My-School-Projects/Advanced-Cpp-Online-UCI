@@ -50,6 +50,10 @@ public:
     typedef iter<map_by_date_t::iterator> iterator_by_date;
     typedef iter<map_by_date_t::const_iterator> const_iterator_by_date;
     
+    enum sort {
+        by_inv_num, by_date, ask
+    };
+    
     bool insert(car_t car);
     
     void erase(const iterator_by_inv_num& it);

@@ -20,7 +20,7 @@ using std::string;
 
 void add_car(lot_t&);
 void exit_car(lot_t&);
-void print_lot(const lot_t&, sort = ask);
+void print_lot(const lot_t&, lot_t::sort = lot_t::ask);
 
 int main() {
     
@@ -82,9 +82,9 @@ void add_car(lot_t& lot) {
     while (lot.insert(car_t(plate_number, description, date)) == false) {}
 }
 
-void print_lot(const lot_t& lot, sort sort) {
+void print_lot(const lot_t& lot, lot_t::sort sort) {
     string response;
-    if (sort == ask) {
+    if (sort == lot_t::ask) {
         do {
             cout<<endl
             <<"Type '"<<constant::by_inv_num
@@ -96,7 +96,7 @@ void print_lot(const lot_t& lot, sort sort) {
             clear_screen();
         } while (response != constant::by_date and
                  response != constant::by_inv_num);
-    } else if (sort == by_date) {
+    } else if (sort == lot_t::by_date) {
         response = constant::by_date;
     } else {
         response = constant::by_inv_num;
@@ -127,7 +127,7 @@ void exit_car(lot_t& lot) {
              response != constant::by_inv_num);
     clear_screen();
     if (response == constant::by_date) {
-        print_lot(lot, by_date);
+        print_lot(lot, lot_t::by_date);
         do {
             date_t date = get_input<date_t>
             ("Enter the date the car was bought (mm/dd/yyyy)",
@@ -144,7 +144,7 @@ void exit_car(lot_t& lot) {
             }
         } while (true);
     } else {
-        print_lot(lot, by_inv_num);
+        print_lot(lot, lot_t::by_inv_num);
         do {
             car_t::inv_num_t inv_num = get_input<car_t::inv_num_t>
             ("Enter the the inventory number for the car",
