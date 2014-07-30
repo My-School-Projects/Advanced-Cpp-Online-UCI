@@ -12,7 +12,6 @@
 #include <iomanip>
 #include <ciso646>
 
-
 using std::cout;
 using std::endl;
 using std::cin;
@@ -25,11 +24,9 @@ void print_lot(const lot_t&, lot_t::sort = lot_t::ask);
 int main() {
     
     lot_t lot;
-    
     string response;
     
     prompt_clear_screen();
-    
     clear_screen();
     
     do {
@@ -44,7 +41,6 @@ int main() {
         } else if (response == constant::quit) {
             return 0;
         }
-        
         do {
             cout<<endl
             <<"Press [return] to enter a new car..."<<endl

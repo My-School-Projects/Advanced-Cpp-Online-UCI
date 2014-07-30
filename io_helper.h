@@ -12,6 +12,7 @@
 #include <iostream>
 #include <iomanip>
 #include <ciso646>
+
 using std::cin;
 using std::cout;
 using std::endl;
