@@ -7,10 +7,10 @@
  */
 
 #include "lot.h"
+#include "io_helper.h"
 #include <iostream>
 #include <iomanip>
 #include <ciso646>
-#include "io_helper.h"
 
 
 using std::cout;
