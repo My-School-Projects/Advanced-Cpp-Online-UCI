@@ -31,6 +31,8 @@ int main() {
     
     string response;
     
+    prompt_clear_screen();
+    
     clear_screen();
     
     do {
