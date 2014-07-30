@@ -137,7 +137,7 @@ void exit_car(lot_t& lot) {
              "Please enter a date in the format (mm/dd/yyyy)");
             auto it = lot.find_by_date(date);
             if (it == lot.end_by_date()) {
-                cout<<"No car was found for the date "<<date<<"."<<endl;
+                cout<<"No car was found with the date "<<date<<"."<<endl;
                 continue;
             } else {
                 clear_screen();
