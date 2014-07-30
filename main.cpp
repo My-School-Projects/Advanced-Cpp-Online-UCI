@@ -131,10 +131,6 @@ void exit_car(lot_t& lot) {
     clear_screen();
     if (response == constant::by_date) {
         print_lot(lot, by_date);
-    } else {
-        print_lot(lot, by_inv_num);
-    }
-    if (response == constant::by_date) {
         do {
             date_t date = get_input<date_t>
             ("Enter the date the car was bought (mm/dd/yyyy)",
@@ -151,6 +147,7 @@ void exit_car(lot_t& lot) {
             }
         } while (true);
     } else {
+        print_lot(lot, by_inv_num);
         do {
             car_t::inv_num_t inv_num = get_input<car_t::inv_num_t>
             ("Enter the the inventory number for the car",
