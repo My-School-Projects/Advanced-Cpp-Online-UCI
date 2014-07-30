@@ -20,9 +20,6 @@ using std::string;
 
 void add_car(lot_t&);
 void exit_car(lot_t&);
-enum sort {
-    by_inv_num, by_date, ask
-};
 void print_lot(const lot_t&, sort = ask);
 
 int main() {

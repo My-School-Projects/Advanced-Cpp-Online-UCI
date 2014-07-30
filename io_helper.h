@@ -28,6 +28,10 @@ namespace constant {
     std::string by_date = "d";
 }
 
+enum sort {
+    by_inv_num, by_date, ask
+};
+
 template <class T>
 T get_input(string prompt, string error_message = "") {
     cout<<endl<<prompt<<endl<<">> ";
