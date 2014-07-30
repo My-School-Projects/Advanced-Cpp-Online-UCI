@@ -43,6 +43,7 @@ T get_input(string prompt, string error_message = "") {
         }
         cin>>data;
     } while (cin.fail());
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return data;
 }
 
