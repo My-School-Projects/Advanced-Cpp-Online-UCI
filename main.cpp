@@ -18,8 +18,6 @@ using std::endl;
 using std::cin;
 using std::string;
 
-void clear_screen();
-void print_title(string title, int width, char = '*');
 void add_car(lot_t&);
 void exit_car(lot_t&);
 enum sort {
@@ -165,19 +163,4 @@ void exit_car(lot_t& lot) {
             }
         } while (true);
     }
-}
-
-void clear_screen() {
-    if (option::clear_screen_enabled) {
-        if (system("cls")) system("clear");
-        print_title(constant::title, 40);
-    }
-}
-
-void print_title(string title, int width, char fill_char) {
-    using std::setw;
-    cout<<std::setfill(fill_char)<<std::right
-    <<setw(width*2-(int)title.length())<<fill_char<<endl
-    <<setw(width)<< title <<setw(width-(int)title.length())<<fill_char<<endl
-    <<setw(width*2-(int)title.length())<<fill_char<<endl<<std::setfill(' ');
 }
