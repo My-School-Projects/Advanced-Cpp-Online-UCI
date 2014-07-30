@@ -71,7 +71,6 @@ void prompt_clear_screen() {
             break;
         }
     }
-
 }
 
 #endif
