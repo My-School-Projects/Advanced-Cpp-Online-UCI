@@ -27,11 +27,36 @@ bool lot_t::insert(car_t car) {
     return success;
 }
 
-void lot_t::erase(const lot_t::iterator_by_inv_num& it) {
+void lot_t::erase(lot_t::iterator_by_inv_num& it) {
+    /**
+     * First, find the range of cars with the same date as the car
+     * pointed to by it
+     */
+    auto d_it_r = map_by_date.equal_range(it->date());
+    /**
+     * Then find the car in that range with the correct inventory number
+     * and delete it
+     */
+    for (auto i = d_it_r.first; i != d_it_r.second; i++) {
+        if (i->second.inventory_number() == it->inventory_number()) {
+            map_by_date.erase(i);
+            break;
+        }
+    }
+    /**
+     * Then erase the entry in map_by_inv_num
+     */
     map_by_inv_num.erase(it._it);
 }
 
-void lot_t::erase(const lot_t::iterator_by_date& it) {
+void lot_t::erase(lot_t::iterator_by_date& it) {
+    /**
+     * First, find and erase the matching entry in map_by_inv_num
+     */
+    map_by_inv_num.erase(map_by_inv_num.find(it->inventory_number()));
+    /**
+     * Then erase the entry in map_by_date
+     */
     map_by_date.erase(it._it);
 }
 

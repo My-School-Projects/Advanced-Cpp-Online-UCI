@@ -31,6 +31,9 @@ class lot_t {
         decltype(_it->second) operator * () {
             return _it->second;
         }
+        decltype(&_it->second) operator -> () {
+            return &_it->second;
+        }
         bool operator == (const iter<It>& it)const {
             return this->_it == it._it;
         }
@@ -56,8 +59,8 @@ public:
     
     bool insert(car_t car);
     
-    void erase(const iterator_by_inv_num& it);
-    void erase(const iterator_by_date& it);
+    void erase(iterator_by_inv_num& it);
+    void erase(iterator_by_date& it);
     
     iterator_by_inv_num find_by_inv_num(const car_t::inv_num_t& inv_num);
     iterator_by_date find_by_date(const date_t& date);
