@@ -8,6 +8,10 @@
 
 #include "lot.h"
 
+size_t lot_t::car_count() {
+    return map_by_date.size();
+}
+
 bool lot_t::insert(car_t car) {
     using std::make_pair;
     

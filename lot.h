@@ -57,6 +57,8 @@ public:
         by_inv_num, by_date, ask
     };
     
+    size_t car_count();
+    
     bool insert(car_t car);
     
     void erase(iterator_by_inv_num& it);
