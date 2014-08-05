@@ -11,6 +11,4 @@
 
 #include "account.h"
 
-
-
 #endif
