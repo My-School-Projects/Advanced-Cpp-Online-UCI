@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <ciso646>
 using std::vector;
+using std::transform;
 using std::string;
 using std::to_string;
 using std::cout;
@@ -29,12 +30,12 @@ int main() {
     
     vector<Account> a_plus_b(size);
     
-    std::transform(a.begin(), a.end(), b.begin(), b.end(),
+    transform(a.begin(), a.end(), b.begin(), b.end(),
                    [](const Account& lhv, const Account& rhv) {
                        return lhv + rhv;
                    });
     for (size_t i = 0; i < size; i++) {
-        cout<< a[i] << " + " << b[i] << " = " << a_plus_b[i] << endl;
+        cout << a[i] << " + " << b[i] << " = " << a_plus_b[i] << endl;
     }
 }
 
