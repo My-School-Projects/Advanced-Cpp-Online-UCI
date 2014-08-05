@@ -9,7 +9,6 @@
 #include "main.h"
 #include <ostream>
 #include <iomanip>
-#include <ciso646>
 
 int main() {
     

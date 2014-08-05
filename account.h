@@ -10,6 +10,7 @@
 #define Accounting__account_h
 
 #include <ostream>
+#include <ciso646>
 using std::ostream;
 using std::string;
 
