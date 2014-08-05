@@ -6,7 +6,7 @@
  *  main.cpp
  */
 
-#include "main.h"
+#include "account.h"
 #include <ostream>
 #include <iomanip>
 
