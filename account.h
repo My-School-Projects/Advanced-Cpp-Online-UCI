@@ -29,4 +29,6 @@ public:
 
 ostream& operator << (ostream&, const Account&);
 
+bool operator < (const Account&, const Account&);
+
 #endif

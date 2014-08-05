@@ -18,3 +18,7 @@ ostream& operator << (ostream& out, const Account& account) {
     out<<account.name<<": $"<<account.balance;
     return out;
 }
+
+bool operator < (const Account& lhv, const Account& rhv) {
+    return lhv.balance < rhv.balance;
+}
