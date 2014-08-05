@@ -19,6 +19,8 @@ public:
     string name;
     double balance;
     
+    Account() = default;
+    
     friend ostream& operator << (ostream&, const Account&);
 };
 
