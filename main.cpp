@@ -10,6 +10,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
 #include <ciso646>
 using std::vector;
 using std::string;
@@ -21,11 +22,20 @@ vector<Account> generateAccounts(size_t, string);
 
 int main() {
     
-    auto v = generateAccounts(5, "Client A");
-    for (auto i : v) {
-        cout<<i<<endl;
-    }
+    size_t size = 5;
     
+    auto a = generateAccounts(size, "Client A");
+    auto b = generateAccounts(size, "Client B");
+    
+    vector<Account> a_plus_b(size);
+    
+    std::transform(a.begin(), a.end(), b.begin(), b.end(),
+                   [](const Account& lhv, const Account& rhv) {
+                       return lhv + rhv;
+                   });
+    for (size_t i = 0; i < size; i++) {
+        cout<< a[i] << " + " << b[i] << " = " << a_plus_b[i] << endl;
+    }
 }
 
 vector<Account> generateAccounts(size_t n, string baseName) {
