@@ -22,6 +22,8 @@ public:
     
     Account(const string& = "", double = 0);
     
+    Account operator + (const Account&)const;
+    
     friend ostream& operator << (ostream&, const Account&);
 };
 

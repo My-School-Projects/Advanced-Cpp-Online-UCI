@@ -10,6 +10,10 @@
 
 Account::Account(const string& n, double b) : name(n), balance(b) {}
 
+Account Account::operator + (const Account& that)const {
+    return Account(this->name + " + " + that.name, this->balance+that.balance);
+}
+
 ostream& operator << (ostream& out, const Account& account) {
     out<<account.name<<": $"<<account.balance;
     return out;
