@@ -20,7 +20,7 @@ public:
     string name;
     double balance;
     
-    Account() = default;
+    Account(const string& = "", double = 0);
     
     friend ostream& operator << (ostream&, const Account&);
 };
