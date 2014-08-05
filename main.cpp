@@ -10,10 +10,12 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <queue>
 #include <algorithm>
 #include <ciso646>
 using std::vector;
 using std::transform;
+using std::priority_queue;
 using std::string;
 using std::to_string;
 using std::cout;
@@ -34,8 +36,23 @@ int main() {
                    [](const Account& lhv, const Account& rhv) {
                        return lhv + rhv;
                    });
+    cout << "4.1 (Transform)" << endl << endl;
     for (size_t i = 0; i < size; i++) {
         cout << a[i] << " + " << b[i] << " = " << a_plus_b[i] << endl;
+    }
+    
+    cout << endl << "4.2 (Priority Queue)" << endl << endl;
+    cout << "Unsorted:" << endl;
+    for (size_t i = 0; i < size; i++) {
+        cout << a_plus_b[i] << endl;
+    }
+    
+    priority_queue<Account> sorted(std::less<Account>(), a_plus_b);
+    
+    cout << endl << "Sorted:" << endl;
+    while (sorted.size() > 0) {
+        cout << sorted.top() << endl;
+        sorted.pop();
     }
 }
 
