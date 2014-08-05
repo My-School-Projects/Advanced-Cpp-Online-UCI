@@ -7,7 +7,7 @@
  */
 
 #include "main.h"
-#include <iostream>
+#include <ostream>
 #include <iomanip>
 #include <ciso646>
 
