@@ -3,14 +3,9 @@
  *  Assignment 4
  *  Accounting
  *
- *  main.h
+ *  account.cpp
  */
-
-#ifndef Accounting__main_h
-#define Accounting__main_h
 
 #include "account.h"
 
 
-
-#endif
