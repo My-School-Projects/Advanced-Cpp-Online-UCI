@@ -10,6 +10,7 @@
 #define Used_Car_Dealership__date_h
 
 #include <iostream>
+#include <cstdint>
 #include <ciso646>
 
 class date_t {
