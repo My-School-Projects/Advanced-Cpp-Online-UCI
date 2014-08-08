@@ -67,7 +67,6 @@ std::ostream& operator << (std::ostream& out, const date_t& d) {
 }
 
 std::istream& operator >> (std::istream& in, date_t& d) {
-    using std::tie;
     std::string input;
     uint16_t month, day, year;
     std::getline(in, input, '/');
