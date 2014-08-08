@@ -7,16 +7,25 @@
  */
 
 #include "car.h"
+#include <cstdlib>
+
+random_generator::random_generator() : generator(std::random_device().operator()()) {}
+
+random_generator car_t::rand;
+
+uint32_t random_generator::operator()() {
+    return distribution(generator);
+}
 
 car_t::car_t(const std::string& pn, const std::string& dscptn, const date_t& date) :
 plate_number(pn), description(dscptn),
-_date(date), inv_num(arc4random()) {
+_date(date), inv_num(rand()) {
     capitolize_plate_number();
 }
 
 car_t::car_t(std::string&& pn, std::string&& dscptn, const date_t& date) :
 plate_number(std::move(pn)), description(std::move(dscptn)),
-_date(date), inv_num(arc4random()) {
+_date(date), inv_num(rand()) {
     capitolize_plate_number();
 }
 

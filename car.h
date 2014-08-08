@@ -12,13 +12,24 @@
 #include "date.h"
 #include <iostream>
 #include <string>
+#include <cstdint>
+#include <random>
 #include <ciso646>
+
+class random_generator {
+    std::mt19937 generator;
+    std::uniform_int_distribution<uint32_t> distribution;
+public:
+    random_generator();
+    uint32_t operator()();
+};
 
 class car_t {
 public:
     typedef uint32_t inv_num_t;
     
 private:
+    static random_generator rand;
     inv_num_t inv_num;
     date_t _date;
     std::string plate_number;
