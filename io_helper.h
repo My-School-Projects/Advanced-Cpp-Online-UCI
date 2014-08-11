@@ -10,7 +10,6 @@
 #define Used_Car_Dealership__io_helper_h
 
 #include <iostream>
-#include <iomanip>
 #include <ciso646>
 
 using std::cin;
@@ -23,12 +22,7 @@ namespace option {
 }
 
 namespace constant {
-    std::string title = " Welcome to the Used Car Dealership ";
-    std::string exit_car = "x";
-    std::string print_lot = "r";
     std::string quit = "q";
-    std::string by_inv_num = "i";
-    std::string by_date = "d";
 }
 
 template <class T>
@@ -77,18 +71,9 @@ void prompt_clear_screen() {
     }
 }
 
-void print_title(string title, int width, char fill_char = '*') {
-    using std::setw;
-    cout<<std::setfill(fill_char)<<std::right
-    <<setw(width*2-(int)title.length())<<fill_char<<endl
-    <<setw(width)<< title <<setw(width-(int)title.length())<<fill_char<<endl
-    <<setw(width*2-(int)title.length())<<fill_char<<endl<<std::setfill(' ');
-}
-
 void clear_screen() {
     if (option::clear_screen_enabled) {
         if (system("cls")) system("clear");
-        print_title(constant::title, 40);
     }
 }
 
