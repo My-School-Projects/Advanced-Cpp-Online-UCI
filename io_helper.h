@@ -1,13 +1,13 @@
 /**
  *  Michael Dorst
- *  Assignment 3
- *  Used Car Dealership
+ *  Assignment 3.2
+ *  Function Pointers
  *
  *  io_helper.cpp
  */
 
-#ifndef Used_Car_Dealership__io_helper_h
-#define Used_Car_Dealership__io_helper_h
+#ifndef Function_Pointers__io_helper_h
+#define Function_Pointers__io_helper_h
 
 #include <iostream>
 #include <ciso646>

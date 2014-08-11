@@ -1,7 +1,7 @@
 /**
  *  Michael Dorst
- *  Assignment 3
- *  Used Car Dealership
+ *  Assignment 3.2
+ *  Function Pointers
  *
  *  main.cpp
  */
