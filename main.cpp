@@ -17,7 +17,5 @@ using std::string;
 
 int main() {
     
-    prompt_clear_screen();
-    clear_screen();
     
 }

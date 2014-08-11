@@ -17,10 +17,6 @@ using std::cout;
 using std::endl;
 using std::string;
 
-namespace option {
-    bool clear_screen_enabled;
-}
-
 namespace constant {
     std::string quit = "q";
 }
@@ -48,32 +44,6 @@ string get_input<string>(string prompt, string error_message) {
     cout<<endl<<prompt<<endl<<">> ";
     std::getline(cin, input);
     return input;
-}
-
-void prompt_clear_screen() {
-    string response;
-    
-    cout<<"This program would like your permission to clear the terminal."<<endl
-    <<"Would you like to allow this?"<<endl;
-    
-    while (true) {
-        cout<<"[Y]es or [N]o?"<<endl
-        <<">> ";
-        std::getline(cin, response);
-        if (response[0] == 'y' or response[0] == 'Y') {
-            option::clear_screen_enabled = true;
-            break;
-        } else if (response[0] == 'n' or response[0] == 'N') {
-            option::clear_screen_enabled = false;
-            break;
-        }
-    }
-}
-
-void clear_screen() {
-    if (option::clear_screen_enabled) {
-        if (system("cls")) system("clear");
-    }
 }
 
 #endif
