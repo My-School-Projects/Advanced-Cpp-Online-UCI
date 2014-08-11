@@ -54,8 +54,7 @@ void prompt_clear_screen() {
     string response;
     
     cout<<"This program would like your permission to clear the terminal."<<endl
-    <<"Warning: this option is designed to work on MS-DOS and UNIX based"<<endl
-    <<"systems only (including Windows, Linux and OS X)."<<endl;
+    <<"Would you like to allow this?"<<endl;
     
     while (true) {
         cout<<"[Y]es or [N]o?"<<endl
