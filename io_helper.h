@@ -18,12 +18,15 @@ using std::endl;
 using std::string;
 
 namespace constant {
-    std::string quit = "q";
+    string quit = "q";
+    string new_string = "e";
+    string toupper = "c";
+    string tolower = "l";
 }
 
 template <class T>
 T get_input(string prompt, string error_message = "") {
-    cout<<endl<<prompt<<endl<<">> ";
+    cout<<prompt<<endl<<">> ";
     T data;
     do {
         if (cin.fail()) {
